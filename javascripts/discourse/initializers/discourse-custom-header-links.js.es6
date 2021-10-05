@@ -24,7 +24,7 @@ export default {
         .split("|")
         .filter(Boolean)
         .map((customHeaderLinksArray) => {
-          const [linkText, linkTitle, linkHref, device, target, keepOnScroll] =
+          const [linkText, linkTitle, linkHref, device, target, keepOnScroll, fontSize] =
             customHeaderLinksArray
               .split(",")
               .filter(Boolean)
@@ -40,6 +40,7 @@ export default {
           const anchorAttributes = {
             title: linkTitle,
             href: linkHref,
+            style: {'font-size': `var(--font-${fontSize})`}
           };
           if (linkTarget) {
             anchorAttributes.target = linkTarget;
